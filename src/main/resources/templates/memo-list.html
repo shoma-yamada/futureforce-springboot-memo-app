@@ -36,6 +36,12 @@
                 <div class="note-card-content">
                     <p class="note-card-text" th:text="${memo.content}">内容</p>
                 </div>
+				
+				<div class="priority-group" th:if="${memo.priority != null}">
+				            <span th:class="'priority-pill ' + ${memo.priority.name().toLowerCase()}"
+				                  th:text="${memo.priority.label}">高</span>
+				</div>
+
                 <div class="note-card-footer">
                     <p class="note-date" th:text="${#temporals.format(memo.createdAt, 'yyyy/MM/dd HH:mm')}">日付</p>
                     <div class="note-actions">
