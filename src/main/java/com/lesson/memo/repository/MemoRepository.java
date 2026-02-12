@@ -10,6 +10,9 @@ public interface MemoRepository extends JpaRepository<Memo, Long> {
 	
 	List<Memo> findAllByOrderByUpdatedAtDesc();
 	
-	List<Memo> findByTitleContainingOrderByUpdatedAtDesc(String keyword);
+	List<Memo> findByTitleContainingOrContentContainingOrderByUpdatedAtDesc(
+			String titleKeyword,
+			String contentKeyword
+			);
     
 }

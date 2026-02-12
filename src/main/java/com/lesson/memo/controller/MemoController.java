@@ -45,7 +45,7 @@ public class MemoController {
     	List<Memo> memos; if (keyword == null || keyword.isBlank()) {
     		memos = memoRepository.findAllByOrderByUpdatedAtDesc();
     		} else {
-    		memos = memoRepository.findByTitleContainingOrderByUpdatedAtDesc(keyword);
+    		memos = memoRepository.findByTitleContainingOrContentContainingOrderByUpdatedAtDesc(keyword, keyword);
     		}
     	
         model.addAttribute("memos", memos);
