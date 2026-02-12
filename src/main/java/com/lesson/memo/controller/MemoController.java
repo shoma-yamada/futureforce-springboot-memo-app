@@ -51,7 +51,7 @@ public class MemoController {
         model.addAttribute("memos", memos);
         model.addAttribute("keyword", keyword);
 
-    	return "redirect:/memo-list"; }
+    	return "memo-list"; }
 
     @GetMapping("/new")
     public String showForm(Model model) {
