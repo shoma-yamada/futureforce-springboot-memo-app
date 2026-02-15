@@ -15,15 +15,15 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
-                .requestMatchers("/admin/signup", "/admin/login").permitAll()
+                .requestMatchers("/admin/signup", "/admin/signin").permitAll()
                 .anyRequest().authenticated()
             )
 
             // ログイン設定
             .formLogin(form -> form
-                    .loginPage("/admin/login")
-                    .loginProcessingUrl("/admin/login")
-                    .usernameParameter("email")   // ← ここ重要
+                    .loginPage("/admin/signin")
+                    .loginProcessingUrl("/admin/signin")
+                    .usernameParameter("email")
                     .passwordParameter("password")
                     .defaultSuccessUrl("/memo", true)
                     .permitAll()
@@ -31,7 +31,7 @@ public class SecurityConfig {
 
             // ログアウト設定（任意だが実務では基本入れる）
             .logout(logout -> logout
-                .logoutSuccessUrl("/admin/login")
+                .logoutSuccessUrl("/admin/signin")
                 .permitAll()
             );
 

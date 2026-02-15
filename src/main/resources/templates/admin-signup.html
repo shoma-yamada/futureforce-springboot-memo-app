@@ -13,9 +13,9 @@
             <input type="text" th:field="*{firstName}" placeholder="名" required>
             <input type="email" th:field="*{email}" placeholder="メールアドレス" required>
             <input type="password" th:field="*{password}" placeholder="パスワード" required>
-            <button type="submit">登録</button>
+            <button type="submit"  class="btn btn-primary">登録</button>
         </form>
-        <a th:href="@{/memo}">戻る</a>
+        <a th:href="@{/memo}" class="btn btn-outline">戻る</a>
     </div>
 </body>
 </html>
