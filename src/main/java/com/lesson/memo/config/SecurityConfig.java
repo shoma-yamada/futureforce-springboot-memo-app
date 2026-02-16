@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
 
 @Configuration
 public class SecurityConfig {
@@ -32,6 +33,11 @@ public class SecurityConfig {
                     .passwordParameter("password")
                     .defaultSuccessUrl("/memo", true)
                     .permitAll()
+                )
+            
+            // 未承認ユーザーはsignupから
+            .exceptionHandling(ex -> ex
+                    .authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/admin/signup"))
                 )
 
             // ログアウト設定

@@ -29,7 +29,7 @@ public class AdminController{
     @GetMapping("/signup")
     public String signUpForm(Model model){
         model.addAttribute("admin", new Admin());
-        return "admin-signup"; // HTMLファイル名
+        return "admin-signup";
     }
 
     @PostMapping("/signup")
