@@ -1,8 +1,9 @@
 package com.lesson.memo.security;
 
-import java.util.Collections;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -28,7 +29,7 @@ public class AdminDetailService implements UserDetailsService {
         return new User(
                 admin.getEmail(),          // usernameとしてemailを使用
                 admin.getPassword(),       // ハッシュ化済パスワード
-                Collections.emptyList()    // 権限なし。必要ならROLEを付与可能
+                List.of(new SimpleGrantedAuthority("ROLE_ADMIN"))
         );
     }
 }
