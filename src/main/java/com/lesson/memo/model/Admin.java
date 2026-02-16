@@ -35,11 +35,11 @@ public class Admin {
 
     @NotBlank(message = "メールアドレスを入力してください")
     @Email(message = "メールアドレスの形式が不正です")
-    @Column(nullable = false, unique = true, length = 255)
+    @Column(name = "email", nullable = false, unique = true, length = 255)
     private String email;
 
     @NotBlank(message = "パスワードを入力してください")
-    @Column(nullable = false, length = 255)
+    @Column(name = "password", nullable = false, length = 255)
     private String password;
 
     @CreationTimestamp
