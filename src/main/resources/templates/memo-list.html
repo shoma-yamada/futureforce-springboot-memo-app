@@ -16,6 +16,11 @@
             <a th:href="@{/memo/new}" class="btn btn-primary">
                 <i class="ri-add-circle-line"></i> 新規メモ
             </a>
+			<form th:action="@{/logout}" method="post" style="display:inline;">
+			    <button type="submit" class="btn btn-primary">
+			        ログアウト
+			    </button>
+			</form>
         </div>
 		<!-- 検索フォーム -->
 		<form th:action="@{/memo/search}" method="get">
