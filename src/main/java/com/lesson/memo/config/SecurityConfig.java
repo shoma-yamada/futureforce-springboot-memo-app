@@ -14,8 +14,13 @@ public class SecurityConfig {
 
         http
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/css/**", "/js/**", "/images/**").permitAll()
-                .requestMatchers("/admin/signup", "/admin/signin").permitAll()
+                .requestMatchers(
+                		"/css/**",
+                		"/js/**",
+                		"/images/**",
+                		"/admin/signup",
+                		"/admin/signin"
+                		).permitAll()
                 .anyRequest().authenticated()
             )
 
@@ -29,7 +34,7 @@ public class SecurityConfig {
                     .permitAll()
                 )
 
-            // ログアウト設定（任意だが実務では基本入れる）
+            // ログアウト設定
             .logout(logout -> logout
                 .logoutSuccessUrl("/admin/signin")
                 .permitAll()
