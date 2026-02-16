@@ -53,7 +53,7 @@ public class AdminController{
             Model model) {
 
         if (error != null) {
-            model.addAttribute("errorMessage", "メールアドレスまたはパスワードが正しくありません");
+            model.addAttribute("errorMessage", "ログイン時にエラーが起きました。");
         }
 
         return "admin-signin";
